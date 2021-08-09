@@ -1,0 +1,15 @@
+<%= form_for @blog do |f| %>
+  <div class="field">
+  Title: <%= f.text_field :title, placeholder: "Legend of the blue sea", required: true %>
+  </div><br>
+  <div class="field">
+  Author: <%= f.text_field :author, placeholder: "Cathy Molina-Garcia" %>
+  </div><br>
+  <div class="field">
+  Body: <%= f.text_area :body, placeholder: "Write your blog here", required: true %>
+  </div><br>
+
+  <div class="actions">
+  <%= f.submit class:"btn btn-success" %>
+  </div><br>
+<% end %>

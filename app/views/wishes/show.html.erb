@@ -1,0 +1,11 @@
+<h1>Wish</h1>
+
+<p class="lead">Wish: <strong><%= @wish.name %></strong></p>
+<p class="lead">Expecting at: </strong><%= @wish.expected_date %></strong></p>
+<p class="lead">Status: <strong><%= @wish.status %>
+  <% Wish::STATUSES.each do |status| %>
+    <%= link_to_unless @wish.status.eql?(status.to_s), status, update_status_wish_path(@wish, status: status), method: :patch %>
+  <% end %>
+</strong></p> 
+
+<%= link_to "Back", wishes_path, class:"btn btn-secondary" %>

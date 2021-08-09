@@ -1,0 +1,12 @@
+<%= form_for @wish do |w| %>
+  <div class="field">
+  <%= w.text_field :name, placeholder: "Enter your wish here", required: true, autofocus: true %> 
+  </div>
+  <div class="field">
+  Pick your expected date: <br><%= w.date_field :expected_date, required: true %>
+  </div><br>
+
+  <div class="actions">
+  <%= w.submit class:"btn btn-warning" %>
+  </div><br>
+<% end %>

@@ -1,0 +1,7 @@
+<h3><strong><%= @blog.title %></strong></h3>
+<strong>By: <%= @blog.author %></strong><br><br>
+<p><%= @blog.body %></p>
+
+<%= link_to "Back", blogs_path, class:"btn btn-secondary" %>
+<%= link_to "Edit", edit_blog_path(@blog), class:"btn btn-success" %>
+<%= link_to "Delete", blog_path(@blog), class:"btn btn-danger", method: :delete, data: {confirm:"Are you sure?"} %>

@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <div class="container">
     <title>DonCreations</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </div>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-    <%= current_user.email %>
-      <%= link_to "Log Out", destroy_user_session_path, method: :destroy %>
-      <%= link_to "Security and Login", edit_user_registration_path %>
-    <% else %>
-      <%= link_to "Log in", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path	 %>
-    <% end %>
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
+      <% if user_signed_in? %>
+      Me:<%= current_user.email %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"btn btn-sm btn-dark" %>
+        <%= link_to "Security and Login", edit_user_registration_path, class:"btn btn-sm btn-dark" %>
+      <% end %>
     <%= yield %>
   </body>
 </html>

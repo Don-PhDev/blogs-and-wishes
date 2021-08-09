@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#homepage"
+  resources :blogs
 
+  resources :wishes do
+    member do
+      patch :update_status
+    end
+  end
+
+  root to: "home#homepage"
   get 'homepage', to: 'home#homepage'
 end
