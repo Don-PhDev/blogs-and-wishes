@@ -6,7 +6,7 @@ default: &default
 
 development:
   <<: *default
-  database: DonCreations_development
+  database: don_creations_dev
 test:
   <<: *default
-  database: DonCreations_test
+  database: don_creations_test
