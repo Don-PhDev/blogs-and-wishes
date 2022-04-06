@@ -2,7 +2,7 @@
 
 <%= link_to "Add a wish", new_wish_path, class:"btn btn-warning" %>
 
-<table class="table table-sm table-hover table-bordered border-dark">
+<table class="table table-sm table-hover table-bordered border-dark mt-3">
   <thead class="table table-light table-bordered border-dark">
     <tr>
       <th>Wish</th>
@@ -15,8 +15,8 @@
     <% @wishes.each do |wish| %>
       <tr>
         <td><%= wish.name %></td>
-        <td><%= wish.created_at %></td>
-        <td><%= wish.expected_date %></td>
+        <td><%= wish.created_at.strftime("%a %b %d, %Y") %></td>
+        <td><%= wish.expected_date.strftime("%a %b %d, %Y") %></td>
         <td><%= link_to "Show", wish_path(wish), class:"btn btn-sm btn-primary" %></td>
         <td><%= link_to "Edit", edit_wish_path(wish), class:"btn btn-sm btn-success"%></td>
         <td><%= link_to "Remove", wish_path(wish), class:"btn btn-sm btn-danger", method: :delete, data: {confirm: "Pindutin ang 'ok' kung sure ka na"} %></td>
